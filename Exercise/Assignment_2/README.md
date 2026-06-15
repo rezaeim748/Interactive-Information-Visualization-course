@@ -8,45 +8,36 @@ The tools used in this assignment are:
 - RAWGraphs
 
 ## Dataset
-I used the **[dataset name]** dataset from Tableau Sample Data.
+I used the **Sample-Superstore** dataset from Tableau Sample Data.
 
-Short description:
-- Number of rows: ...
-- Main attributes: ...
-- Purpose: ...
+Short description:  
+- Number of rows: ~10,000  
+- Main attributes: Order Date, Sales, Profit, Quantity, Category, Segment, State  
+- Purpose: Analyze sales performance, profitability, and customer behavior across regions and product categories
 
 ---
 
 ## Tableau Visualizations
 
-### Visualization 1 — Scatter Plot
-Short explanation of what the chart shows.
+### Visualization 1 — Bar Chart
 
-![Scatter Plot](images/Dashboard.png)
-![Scatter Plot](images/Dashboard_State_selected.png)
+![Bar Chart](images/Tableau_Bar_Chart.png)
 
 **Observation:**  
-Brief insight from the chart.
+Sales fluctuate significantly over time, with several peaks and drops across the months. An overall increasing trend can be observed, especially toward late 2025 and 2026, where sales reach their highest values.
 
-### Visualization 2 — Bar Chart / Map / Box Plot
-Short explanation.
+### Visualization 2 — Dashboard
 
-![Chart 2](images/chart2.png)
-
-**Observation:**  
-Brief insight.
-
----
-
-## RAWGraphs Visualizations
-
-### Visualization 3 — Parallel Coordinates Plot
-Short explanation.
-
-![PCP](images/pcp.png)
+![Filled map](images/Tableau_Dashboard.png)
+This visualization shows profit by region, sales trends over time, and sales differences between customer segments.
+![Filled map](images/Tableau_Dashboard_State_selected.png)
+This dashboard shows the same information as the previous one, but only for the selected state, making the analysis more focused.
 
 **Observation:**  
-Brief insight.
+*First dashboard:* Profitability varies across states, with some regions generating losses while others remain profitable. Sales generally increase over time, although there are noticeable fluctuations. Among customer segments, the Consumer segment contributes the highest sales, while Home Office contributes the least.
+
+*Second dashboard:* After filtering to a single state, sales values become smaller and more irregular over time, showing stronger fluctuations. The selected state experiences both profitable and unprofitable periods, indicating less stable performance. The Consumer segment still contributes most of the sales.
+
 
 ---
 
