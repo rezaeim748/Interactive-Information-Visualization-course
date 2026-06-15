@@ -22,7 +22,8 @@ Short description:
 ### Visualization 1 — Scatter Plot
 Short explanation of what the chart shows.
 
-![Scatter Plot](images/scatterplot.png)
+![Scatter Plot](images/Dashboard.png)
+![Scatter Plot](images/Dashboard_State_selected.png)
 
 **Observation:**  
 Brief insight from the chart.
