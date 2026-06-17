@@ -45,40 +45,22 @@ This dashboard shows the same information as the previous one, but only for the 
 
 ---
 
-## PCP Interaction Analysis
+## Interactions and Tasks
 
-In this part, I analyzed how a **Parallel Coordinates Plot (PCP)** supports Yi’s seven categories of interaction.
+### How does PCP support Yi's categories of interaction?
 
-### Select
-PCP supports selection by allowing users to highlight specific lines or value ranges. This helps identify important data records while reducing distraction from other records.
+- **Select** (mark something as interesting): Well supported. Clicking or hovering a single polyline highlights it, and dragging a small range on an axis (axis brushing) marks every record whose value falls inside that range.
+- **Explore** (show me something else): Supported, though more limited than in a pan/zoom view. Sliding a brushed range along an axis, or scrolling through additional axes when there are too many dimensions to fit on screen, moves the analyst to a different subset of the data.
+- **Reconfigure** (show me a different arrangement): Very well supported — this is PCP's signature interaction. Dragging an axis to a new horizontal position changes which dimensions sit next to each other, which directly changes which correlations are visually salient, since only adjacent axes reveal correlation patterns clearly.
+- **Encode** (show me a different representation): Only partially supported. Axes can usually be rescaled (linear to log) or lines recolored/varied in opacity by an extra attribute, but swapping the whole view to a different chart type is not something the PCP itself does — that is the surrounding system switching visualizations.
+- **Abstract/Elaborate** (show me more or less detail): Weakly supported by default. A plain PCP draws every record as one line, so large datasets immediately produce overplotting ("spaghetti"), with no built-in way to back off into an aggregated view; the only elaboration usually on offer is a tooltip showing one record's exact values on hover.
+- **Filter** (show me something conditionally): Very well supported, arguably the second signature PCP interaction. Brushing one or more axes hides or fades every polyline that does not pass through the selected ranges, and multiple brushes combine as an AND filter.
+- **Connect** (show me related items): Weakly supported. A standalone PCP has no built-in notion of "related items" beyond the lines already selected or filtered — it cannot indicate which other records resemble the one picked, unless it is wired up to a second, linked view.
 
-### Explore
-Users can explore the dataset by inspecting different line patterns, clusters, and outliers. This makes it easier to discover hidden relationships between variables.
+### Extending PCP to better support "Connect"
 
-### Reconfigure
-PCP supports reconfiguration through axis reordering. Changing the order of axes helps reveal correlations between selected attributes more clearly.
+The category that is least supported by PCP is **Connect**. Relatedness between records is currently something the analyst has to spot by eye, by noticing which lines run close together across several axes; the plot itself never computes or surfaces that relationship.
 
-### Encode
-Additional attributes can be represented using visual encodings such as color, opacity, or line thickness. This adds more information without changing the basic structure of the plot.
+**Proposed extension — similarity-based auto-highlighting:** when a user selects a line, the system computes a similarity score between that record and every other record (e.g. normalized Euclidean distance across the plotted dimensions), then re-renders the plot in three tiers: the selected line stays bold and strongly colored, the top-*k* most similar lines are highlighted in a graded color scale where a darker shade means a closer match, and all remaining lines fade into a dimmed background. This brings "connect" inside the PCP itself rather than requiring a second, linked visualization.
 
-### Abstract / Elaborate
-PCP partially supports abstraction and elaboration. Users can either focus on general trends or inspect individual records in more detail. However, this becomes difficult when many lines overlap.
-
-### Filter
-Filtering is strongly supported through brushing on axes. Users can display only records within selected value ranges, making the visualization less cluttered.
-
-### Connect
-PCP naturally supports connection because each polyline links the values of one data record across all dimensions, helping users understand relationships between variables.
-
-### Reflection on Limitations
-One weakness of PCP is limited support for **Abstract / Elaborate**, especially for large datasets where heavy overlap creates visual clutter.
-
-### Proposed Extension
-A useful improvement would be **cluster-based aggregation with drill-down interaction**.
-
-This extension would:
-- Group similar records into clusters
-- Display clusters as summarized bands instead of many individual lines
-- Allow users to click a cluster to expand and inspect individual records
-
-This would reduce clutter, improve readability, and make PCP more effective for large datasets.
+![PCP Connect extension sketch](images/PCP_Connect_Extension_Sketch.png)
