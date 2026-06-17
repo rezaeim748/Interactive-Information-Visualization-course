@@ -17,7 +17,7 @@ Short description:
 
 ---
 
-## Tableau Visualizations
+## I. Visualization Tools
 
 ### Visualization 1 — Bar Chart
 
@@ -45,7 +45,7 @@ This dashboard shows the same information as the previous one, but only for the 
 
 ---
 
-## Interactions and Tasks
+## III. Interactions and Tasks
 
 ### How does PCP support Yi's categories of interaction?
 
