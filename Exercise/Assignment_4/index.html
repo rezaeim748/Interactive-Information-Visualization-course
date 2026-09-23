@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Information Visualization - Zooming and Lenses</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- the lens is simulated with an svg circle -->
+    <svg class="cy" width="10000" height="10000">
+      <circle
+        id="lens"
+        class="cy"
+        cx="50"
+        cy="50"
+        r="40"
+        stroke="green"
+        stroke-width="1"
+        fill="none"
+      />
+    </svg>
+
+    <!-- cytoscape draws the graph in this div -->
+    <div class="cy" id="cy"></div>
+
+    <!-- offscreen container: the star plots are drawn here and then turned
+         into images that cytoscape can paint onto the nodes -->
+    <div id="star-factory"></div>
+
+    <div id="config" class="config">
+      <h1>Controls</h1>
+
+      <label for="lens-mode">Lens</label>
+      <select id="lens-mode">
+        <option value="off">off</option>
+        <option value="nodes" selected>node change (star plots)</option>
+        <option value="edges">edge highlight</option>
+        <option value="fisheye">fisheye (distortion)</option>
+      </select>
+
+      <label for="lens-radius">Lens radius: <output id="lens-radius-out">120</output> px</label>
+      <input id="lens-radius" type="range" min="30" max="400" step="5" value="120" />
+
+      <label for="distortion">Fisheye distortion: <output id="distortion-out">3</output></label>
+      <input id="distortion" type="range" min="1" max="8" step="0.5" value="3" />
+
+      <label class="check">
+        <input id="semantic" type="checkbox" checked />
+        Semantic zoom
+      </label>
+
+      <hr />
+
+      <div class="readout">
+        <div>zoom: <output id="zoom-out">–</output></div>
+        <div>semantic level: <output id="level-out">–</output></div>
+        <div>nodes in lens: <output id="lens-count-out">0</output></div>
+      </div>
+
+      <p class="hint">
+        Scroll to zoom (level 0 &rarr; 1 &rarr; 2). Move the mouse over the
+        graph to drag the lens along.
+      </p>
+    </div>
+
+  </body>
+
+  <!-- dependencies -->
+  <script src="libs/d3-7.9.0.js"></script>
+  <script src="libs/radar-chart.js"></script>
+  <script src="libs/radar-chart2.js"></script>
+  <script src="libs/cytoscape-3.24.0.js"></script>
+  <script src="libs/cola-3.3.8.js"></script>
+  <script src="libs/cyto-cola-2.2.3.js"></script>
+
+  <!-- the magic goes in these files! -->
+  <script src="style.js" type="module"></script>
+  <script src="script.js" type="module"></script>
+</html>

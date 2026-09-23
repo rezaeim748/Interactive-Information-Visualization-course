@@ -1,0 +1,94 @@
+/* If you need to make some style changes to the plain html, this is the place! */
+
+
+.cy {
+  /* aligns the svg with the canvas */
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 12em;
+}
+
+/* the lens circle must float above cytoscape's canvases, but it must never
+   swallow the mouse events that cytoscape needs */
+svg.cy {
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#lens {
+  stroke: #f2c14e;
+  stroke-width: 2px;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.6));
+}
+
+#lens.off {
+  display: none;
+}
+
+/* star plots are rendered here before being copied onto the nodes */
+#star-factory {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.config {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 10em;
+  background: rgba(0, 0, 0, 0.666);
+  padding: 1em;
+  color: #ffffff;
+  z-index: 5;
+  font-family: sans-serif;
+  font-size: 13px;
+  overflow-y: auto;
+}
+
+.config h1 {
+  font-size: 15px;
+  margin: 0 0 1em 0;
+}
+
+.config label {
+  display: block;
+  margin: 1em 0 0.25em 0;
+}
+
+.config label.check {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.config select,
+.config input[type="range"] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.config hr {
+  margin: 1.25em 0;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.readout {
+  font-family: monospace;
+  line-height: 1.6;
+}
+
+.hint {
+  margin-top: 1.5em;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #bbb;
+}
