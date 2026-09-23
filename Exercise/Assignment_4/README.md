@@ -75,6 +75,12 @@ Three lens functionalities, selectable in the UI:
 * a small readout of the current zoom factor, semantic level and number of nodes
   under the lens
 
+## Visualization
+
+![node_change](images/node_change.png)
+![edge_highlight](images/edge_highlight.png)
+![fisheye](images/fisheye.png)
+
 ## Reflection: why is the edge highlight not a local edge lens?
 
 The edge highlight selects edges by a local criterion — "is one of my endpoints
