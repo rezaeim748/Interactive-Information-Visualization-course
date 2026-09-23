@@ -26,6 +26,15 @@ This view renders players as nodes and their connections (e.g. pass relationship
 
 All three views share a single selection state propagated via the browser's custom event system. Selecting players in any view — by brushing in the PCP or SPLOM, or clicking nodes in the network — immediately highlights the same players across all other views.
 
+## Final Dashboard
+
+The final dashboard combines the coordinated visualization views into a single interactive interface, allowing multidimensional player statistics to be explored from complementary perspectives.
+
+![Final visualization dashboard](images/PCP_SPLOM.png)
+![Final visualization dashboard](images/Graph.png)
+![Final visualization dashboard](images/PCP_SPLOM_selected.png)
+![Final visualization dashboard](images/Graph_selected.png)
+
 ## Dataset
 
 `data/football.json` contains player statistics (appearances, minutes played, passes, tackles, goals, and more) and edges representing player connections. It was originally sourced from [this repository](https://git.informatik.uni-rostock.de/ct/responsive-matrix-cells/-/blob/master/src/data/football.json).
